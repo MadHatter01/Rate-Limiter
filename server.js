@@ -1,9 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import rateLimiter from './rateLimiter.js';
 dotenv.config();
 
 const app = express();
+app.use(rateLimiter);
 const PORT = process.env.PORT || 3000;
 
 
