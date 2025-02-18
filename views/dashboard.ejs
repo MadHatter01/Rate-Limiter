@@ -7,8 +7,17 @@
 </head>
 <body>
     <h1>Dashboard</h1>
-   
+   <div class="current-config">
     <p>Bucket Size : <%= config.bucketSize %></p>
     <p>Refill Rate : <%= config.refillRate %></p>
+</div>
+<div class="update-config">
+    <form action="/config" method="POST">
+        <label for="bucketSize">Bucket Size:</label>
+        <input type="number" name="bucketSize" id="bucketSize" value="<%= config.bucketSize%>" required/>
+        <input type="number" name="refillRate" id="refillRate" value="<%= config.refillRate%>" required/>
+        <button type="submit">Save Config</button>
+    </form>
+</div>
 </body>
 </html>
