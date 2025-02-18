@@ -19,7 +19,6 @@ const defaultConfig = {
 
 app.get('/', async(req, res)=>{
     const data = await redisClient.hGetAll('rateLimiterConfig');
-    console.log(data);
     if (Object.keys(data).length > 0){
         return res.render('dashboard', {config: {
             bucketSize: parseInt(data.bucketSize),
